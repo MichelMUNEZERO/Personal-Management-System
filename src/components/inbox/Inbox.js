@@ -1,5 +1,5 @@
-import React from 'react';
-import { useInbox } from '../../context/InboxContext';
+import React from "react";
+import { useInbox } from "../../context/InboxContext";
 
 function Inbox() {
   const { inboxItems, processItem } = useInbox();
@@ -10,21 +10,21 @@ function Inbox() {
 
   return (
     <div className="inbox-container">
-      <h2>Inbox ({inboxItems.filter(item => !item.processed).length})</h2>
+      <h2>Inbox ({inboxItems.filter((item) => !item.processed).length})</h2>
       <div className="inbox-list">
         {inboxItems
-          .filter(item => !item.processed)
-          .map(item => (
+          .filter((item) => !item.processed)
+          .map((item) => (
             <div key={item.id} className="inbox-item">
               <div className="inbox-content">{item.content}</div>
               <div className="inbox-actions">
-                <button onClick={() => handleProcess(item.id, 'task')}>
+                <button onClick={() => handleProcess(item.id, "task")}>
                   Convert to Task
                 </button>
-                <button onClick={() => handleProcess(item.id, 'note')}>
+                <button onClick={() => handleProcess(item.id, "note")}>
                   Convert to Note
                 </button>
-                <button onClick={() => handleProcess(item.id, 'goal')}>
+                <button onClick={() => handleProcess(item.id, "goal")}>
                   Convert to Goal
                 </button>
               </div>

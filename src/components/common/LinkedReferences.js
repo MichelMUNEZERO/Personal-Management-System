@@ -1,5 +1,5 @@
-import React from 'react';
-import { useLinks } from '../../context/LinkContext';
+import React from "react";
+import { useLinks } from "../../context/LinkContext";
 
 function LinkedReferences({ pageId }) {
   const { links } = useLinks();

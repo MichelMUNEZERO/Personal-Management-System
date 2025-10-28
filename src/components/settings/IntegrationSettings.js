@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useGoogleAuth } from '../../context/GoogleAuthContext';
-import { useAuth } from '../../context/AuthContext';
+import React, { useState, useEffect } from "react";
+import { useGoogleAuth } from "../../context/GoogleAuthContext";
+import { useAuth } from "../../context/AuthContext";
 
 function IntegrationSettings() {
   const { googleAuth, initGoogleAuth } = useGoogleAuth();
   const { user } = useAuth();
-  const [emailAddress, setEmailAddress] = useState('');
+  const [emailAddress, setEmailAddress] = useState("");
 
   useEffect(() => {
     if (!emailAddress && user) {
@@ -17,8 +17,8 @@ function IntegrationSettings() {
     <div className="integration-settings">
       <section className="integration-section">
         <h3>Calendar Integration</h3>
-        <button 
-          onClick={() => googleAuth?.requestAccessToken()} 
+        <button
+          onClick={() => googleAuth?.requestAccessToken()}
           className="connect-btn"
         >
           Connect Google Calendar

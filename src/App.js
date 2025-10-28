@@ -1,5 +1,5 @@
 // App.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import TaskManager from "./components/TaskManager";
 import NotesManager from "./components/NotesManager";
@@ -13,37 +13,39 @@ import { LinkProvider } from "./context/LinkContext";
 import CaptureWidget from "./components/capture/CaptureWidget";
 import Inbox from "./components/inbox/Inbox";
 import { GoogleAuthProvider } from "./context/GoogleAuthContext";
+import { GoalsProvider } from "./context/GoalsContext";
 
-function AppContent() {
+function App() {
+  const [scriptRef, setScriptRef] = useState(null);
+
+  const initializeGoogleAuth = useCallback(() => {
+    // Google Auth initialization logic here
+  }, []);
+
+  const loadGoogleScript = useCallback(() => {
+    const scriptElement = document.createElement("script");
+    scriptElement.src = "https://accounts.google.com/gsi/client";
+    scriptElement.async = true;
+    scriptElement.defer = true;
+    scriptElement.onload = initializeGoogleAuth;
+    setScriptRef(scriptElement);
+    document.body.appendChild(scriptElement);
+  }, [initializeGoogleAuth]);
+
+  useEffect(() => {
+    loadGoogleScript();
+    return () => {
+      if (scriptRef) {
+        document.body.removeChild(scriptRef);
+      }
+    };
+  }, [loadGoogleScript, scriptRef]);
+
   const [activeTab, setActiveTab] = useState("dashboard");
   const [tasks, setTasks] = useState([]);
   const [notes, setNotes] = useState([]);
   const [goals, setGoals] = useState([]);
   const { user, loading, logout } = useAuth();
-
-  // Load data from localStorage on component mount
-  useEffect(() => {
-    const savedTasks = localStorage.getItem("personalManagerTasks");
-    const savedNotes = localStorage.getItem("personalManagerNotes");
-    const savedGoals = localStorage.getItem("personalManagerGoals");
-
-    if (savedTasks) setTasks(JSON.parse(savedTasks));
-    if (savedNotes) setTasks(JSON.parse(savedNotes));
-    if (savedGoals) setTasks(JSON.parse(savedGoals));
-  }, []);
-
-  // Save data to localStorage whenever it changes
-  useEffect(() => {
-    localStorage.setItem("personalManagerTasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  useEffect(() => {
-    localStorage.setItem("personalManagerNotes", JSON.stringify(notes));
-  }, [notes]);
-
-  useEffect(() => {
-    localStorage.setItem("personalManagerGoals", JSON.stringify(goals));
-  }, [goals]);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -64,14 +66,22 @@ function AppContent() {
     }
   };
 
+  useEffect(() => {
+    console.log('Auth state:', { user, loading });
+  }, [user, loading]);
+
   if (loading) {
+    console.log('Loading state...');
     return <div className="loading">Loading...</div>;
   }
 
   if (!user) {
+    console.log('No user found, showing login...');
     return <Login />;
   }
 
+  console.log('Rendering main app with activeTab:', activeTab);
+  
   return (
     <div className="app">
       <header className="app-header">
@@ -105,26 +115,18 @@ function AppContent() {
   );
 }
 
-function App() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://accounts.google.com/gsi/client';
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-  }, []);
-
+export default function AppWrapper() {
   return (
     <AuthProvider>
       <GoogleAuthProvider>
-        <LinkProvider>
-          <InboxProvider>
-            <AppContent />
-          </InboxProvider>
-        </LinkProvider>
+        <GoalsProvider>
+          <LinkProvider>
+            <InboxProvider>
+              <App />
+            </InboxProvider>
+          </LinkProvider>
+        </GoalsProvider>
       </GoogleAuthProvider>
     </AuthProvider>
   );
 }
-
-export default App;

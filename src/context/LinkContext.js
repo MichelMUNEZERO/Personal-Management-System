@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useAuth } from './AuthContext';
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { useAuth } from "./AuthContext";
 
 const LinkContext = createContext(null);
 
@@ -17,22 +17,22 @@ export const LinkProvider = ({ children }) => {
   const parseLinks = (content) => {
     const linkRegex = /\[\[(.*?)\]\]/g;
     const matches = [...content.matchAll(linkRegex)];
-    return matches.map(match => match[1]);
+    return matches.map((match) => match[1]);
   };
 
   const addLinks = (sourceId, content, sourceType) => {
     const foundLinks = parseLinks(content);
     const newLinks = { ...links };
 
-    foundLinks.forEach(target => {
+    foundLinks.forEach((target) => {
       if (!newLinks[target]) {
         newLinks[target] = [];
       }
-      if (!newLinks[target].some(link => link.sourceId === sourceId)) {
+      if (!newLinks[target].some((link) => link.sourceId === sourceId)) {
         newLinks[target].push({
           sourceId,
           sourceType,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
         });
       }
     });
