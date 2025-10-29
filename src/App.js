@@ -44,7 +44,7 @@ function App() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [tasks, setTasks] = useState([]);
   const [notes, setNotes] = useState([]);
-  const [goals, setGoals] = useState([]);
+  const [goals] = useState([]); // Removed setGoals since we use context
   const { user, loading, logout } = useAuth();
 
   const renderContent = () => {
@@ -58,7 +58,7 @@ function App() {
       case "calendar":
         return <CalendarView tasks={tasks} />;
       case "goals":
-        return <GoalTracker goals={goals} setGoals={setGoals} />;
+        return <GoalTracker tasks={tasks} />;
       case "inbox":
         return <Inbox />;
       default:
@@ -67,21 +67,21 @@ function App() {
   };
 
   useEffect(() => {
-    console.log('Auth state:', { user, loading });
+    console.log("Auth state:", { user, loading });
   }, [user, loading]);
 
   if (loading) {
-    console.log('Loading state...');
+    console.log("Loading state...");
     return <div className="loading">Loading...</div>;
   }
 
   if (!user) {
-    console.log('No user found, showing login...');
+    console.log("No user found, showing login...");
     return <Login />;
   }
 
-  console.log('Rendering main app with activeTab:', activeTab);
-  
+  console.log("Rendering main app with activeTab:", activeTab);
+
   return (
     <div className="app">
       <header className="app-header">
@@ -118,15 +118,15 @@ function App() {
 export default function AppWrapper() {
   return (
     <AuthProvider>
-      <GoogleAuthProvider>
-        <GoalsProvider>
+      <GoalsProvider>
+        <GoogleAuthProvider>
           <LinkProvider>
             <InboxProvider>
               <App />
             </InboxProvider>
           </LinkProvider>
-        </GoalsProvider>
-      </GoogleAuthProvider>
+        </GoogleAuthProvider>
+      </GoalsProvider>
     </AuthProvider>
   );
 }

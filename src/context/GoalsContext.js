@@ -11,9 +11,7 @@ export const GoalsProvider = ({ children }) => {
   };
 
   return (
-    <GoalsContext.Provider value={value}>
-      {children}
-    </GoalsContext.Provider>
+    <GoalsContext.Provider value={value}>{children}</GoalsContext.Provider>
   );
 };
 
