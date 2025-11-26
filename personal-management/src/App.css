@@ -1,25 +1,7 @@
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 .container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-.app-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
-  width: 100%;
-}
-
-.main-content {
-  flex: 1;
-  animation: fadeIn 0.5s ease-in;
 }
 
 @keyframes fadeIn {

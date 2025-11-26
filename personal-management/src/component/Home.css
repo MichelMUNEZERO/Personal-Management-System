@@ -8,9 +8,9 @@
   margin-bottom: 3rem;
   animation: slideDown 0.6s ease-out;
   background: linear-gradient(
-    var(--primary-color) 0%,
-    var(--secondary-color) 0%,
-    var(--primary-light) 0%
+    135deg,
+    var(--primary-light) 0%,
+    var(--secondary-color) 100%
   );
   border-radius: 30px;
   box-shadow: 0 5px 30px var(--shadow);
@@ -32,12 +32,6 @@
   line-height: 1.8;
 }
 
-.home-hero {
-  text-align: center;
-  margin-bottom: 3rem;
-  animation: slideDown 0.6s ease-out;
-}
-
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -47,20 +41,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.home-hero h2 {
-  font-size: 2.5rem;
-  color: var(--primary-dark);
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.home-hero p {
-  font-size: 1.2rem;
-  color: var(--text-light);
-  max-width: 700px;
-  margin: 0 auto;
 }
 
 .features-section {
@@ -132,22 +112,10 @@
   font-weight: 600;
 }
 
-.feature-card h3 {
-  font-size: 1.5rem;
-  color: var(--primary-dark);
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
 .feature-description {
   color: var(--text-light);
   line-height: 1.7;
   font-size: 1rem;
-}
-
-.feature-card p {
-  color: var(--text-light);
-  line-height: 1.7;
 }
 
 .stats-section {
@@ -230,15 +198,4 @@
   background: var(--primary-dark);
   transform: translateY(-3px);
   box-shadow: 0 6px 20px var(--shadow-hover);
-}
-
-.cta-button.secondary {
-  background: var(--secondary-color);
-  color: var(--primary-dark);
-  border: 2px solid var(--primary-color);
-}
-
-.cta-button.secondary:hover {
-  background: var(--primary-color);
-  color: var(--secondary-color);
 }

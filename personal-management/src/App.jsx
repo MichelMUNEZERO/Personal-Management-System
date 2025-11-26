@@ -43,7 +43,10 @@ function App() {
       ) : (
         <>
           <Header />
-          <ActivityForm onAddActivity={handleAddActivity} />
+          <ActivityForm
+            onAddActivity={handleAddActivity}
+            activities={activities}
+          />
         </>
       )}
     </div>
