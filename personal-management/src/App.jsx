@@ -3,6 +3,7 @@ import Navigation from "./component/Navigation";
 import Home from "./component/Home";
 import Header from "./component/Header";
 import ActivityForm from "./component/ActivityForm";
+import Footer from "./component/Footer";
 
 import "./App.css";
 
@@ -49,6 +50,7 @@ function App() {
           />
         </>
       )}
+      <Footer />
     </div>
   );
 }
