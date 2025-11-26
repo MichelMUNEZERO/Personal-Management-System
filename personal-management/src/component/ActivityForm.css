@@ -1,0 +1,547 @@
+/* ===================================
+   FORM CONTAINERS
+   =================================== */
+
+.form-container {
+  background: var(--secondary-color);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px var(--shadow);
+  margin: 2rem;
+  border: 2px solid var(--primary-light);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.activity-form {
+  background: var(--secondary-color);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px var(--shadow);
+  max-width: 600px;
+  margin: 2rem auto;
+  border: 2px solid var(--primary-light);
+}
+
+.activity-form h2 {
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ===================================
+   FORM GROUPS & INPUTS
+   =================================== */
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-dark);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: var(--secondary-color);
+  color: var(--text-dark);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--shadow);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ===================================
+   CATEGORY OPTIONS
+   =================================== */
+
+.category-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.category-option {
+  padding: 1rem;
+  background: var(--secondary-color);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.category-option:hover {
+  border-color: var(--primary-color);
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px var(--shadow);
+}
+
+.category-option.selected {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--secondary-color);
+  box-shadow: 0 4px 15px var(--shadow-hover);
+}
+
+/* ===================================
+   TIME INPUTS
+   =================================== */
+
+.time-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.time-inputs > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.time-inputs label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.time-inputs input {
+  padding: 0.875rem 1rem;
+}
+
+/* ===================================
+   FORM ACTIONS & BUTTONS
+   =================================== */
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.875rem 2.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  box-shadow: 0 3px 10px var(--shadow);
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--shadow-hover);
+}
+
+.btn-secondary {
+  background: var(--secondary-color);
+  color: var(--text-dark);
+  border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-color);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.submit-btn {
+  padding: 1rem 2rem;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow);
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--shadow-hover);
+}
+
+.submit-btn:active {
+  transform: translateY(-1px);
+}
+
+/* ===================================
+   FORM VALIDATION MESSAGES
+   =================================== */
+
+.form-error {
+  color: #d63031;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.form-success {
+  color: #00b894;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* ===================================
+   RECENT ACTIVITIES SECTION
+   =================================== */
+
+.recent-activities {
+  padding: 2rem;
+  margin: 2rem;
+  background: var(--secondary-color);
+  border-radius: 20px;
+  box-shadow: 0 5px 25px var(--shadow);
+  border: 2px solid var(--primary-light);
+}
+
+.recent-activities h2 {
+  color: var(--primary-dark);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ===================================
+   ACTIVITY LIST & CONTAINER
+   =================================== */
+
+.activity-list {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.activity-list h2 {
+  color: var(--primary-dark);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.activities-container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* ===================================
+   ACTIVITY CARDS
+   =================================== */
+
+.activity-card {
+  background: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 3px 15px var(--shadow);
+  transition: all 0.3s ease;
+  border-left: 5px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.activity-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    var(--primary-color),
+    var(--primary-dark)
+  );
+  transition: width 0.3s ease;
+}
+
+.activity-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 25px var(--shadow-hover);
+}
+
+.activity-card:hover::before {
+  width: 100%;
+  opacity: 0.05;
+}
+
+/* ===================================
+   ACTIVITY ITEMS
+   =================================== */
+
+.activity-item {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #fafafa 100%);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 10px var(--shadow);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--primary-color);
+}
+
+.activity-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 20px var(--shadow-hover);
+}
+
+.activity-item .activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ===================================
+   ACTIVITY HEADER & DETAILS
+   =================================== */
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.activity-title {
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.activity-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  flex: 1;
+}
+
+.activity-date {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.activity-description {
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ===================================
+   ACTIVITY META & BADGES
+   =================================== */
+
+.activity-category {
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.activity-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.activity-badge {
+  padding: 0.4rem 1rem;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ===================================
+   ACTIVITY TIME & DURATION
+   =================================== */
+
+.activity-time {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.activity-time::before {
+  content: "🕐";
+}
+
+.activity-duration {
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.activity-duration::before {
+  content: "⏱️";
+}
+
+.activity-notes {
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: var(--primary-light);
+  border-radius: 8px;
+  border-left: 3px solid var(--primary-color);
+}
+
+/* ===================================
+   ACTIVITY ACTIONS
+   =================================== */
+
+.activity-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.btn-edit {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.btn-edit:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px var(--shadow);
+}
+
+.btn-delete {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.btn-delete:hover {
+  background: #c62828;
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(198, 40, 40, 0.3);
+}
+
+/* ===================================
+   EMPTY STATE
+   =================================== */
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-light);
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+}
+
+/* ===================================
+   FILTER SECTION
+   =================================== */
+
+.filter-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--secondary-color);
+  border-radius: 15px;
+  box-shadow: 0 2px 10px var(--shadow);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-section select,
+.filter-section input {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.filter-section select:focus,
+.filter-section input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--shadow);
+}
