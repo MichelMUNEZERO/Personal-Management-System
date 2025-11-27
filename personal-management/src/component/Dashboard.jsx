@@ -15,7 +15,6 @@ const Dashboard = ({ activities = [] }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [dashboardData, setDashboardData] = useState(null);
 
-  // Update current time every minute
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -24,206 +23,198 @@ const Dashboard = ({ activities = [] }) => {
   }, []);
 
   useEffect(() => {
-    // Calculate comprehensive dashboard metrics
-    return (
-      <div className="dashboard">
-        <DashboardHeader currentTime={currentTime} />
-        <QuickStats
-          stats={{
-            todayCompleted: dashboardData.todayCompleted,
-            todayTimeTracked: dashboardData.todayTimeTracked,
-            goalsAchieved: dashboardData.goalsAchieved,
-            totalGoals: dashboardData.totalGoals,
-            productivityScore: dashboardData.productivityScore,
-          }}
-        />
+    const calculateMetrics = () => {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
 
-        <div className="dashboard-grid">
-          <div className="dashboard-column">
-            <ActivityTimeline
-              activities={dashboardData.todayActivities}
-              categoryColors={categoryColors}
-              categoryEmojis={categoryEmojis}
-              formatTime={formatTime}
-              formatDuration={formatDuration}
-            />
-            <RecentActivities
-              activities={activities.slice(0, 4)}
-              categoryColors={categoryColors}
-              categoryEmojis={categoryEmojis}
-              formatTime={formatTime}
-              formatDuration={formatDuration}
-            />
-          </div>
+      const todayActivities = activities.filter((activity) => {
+        const activityDate = new Date(activity.startTime);
+        activityDate.setHours(0, 0, 0, 0);
+        return activityDate.getTime() === today.getTime();
+      });
 
-          <div className="dashboard-column">
-            <GoalsProgress
-              goals={dashboardData.goalsProgress}
-              categoryColors={categoryColors}
-              categoryEmojis={categoryEmojis}
-            />
-            <WeeklyOverview
-              dailyHours={dashboardData.dailyHours}
-              maxDailyHours={maxDailyHours}
-            />
-            <WeeklyPerformance dailyHours={dashboardData.dailyHours} />
-          </div>
+      let todayMinutes = 0;
+      const todayCategoryHours = {};
 
-          <div className="dashboard-column">
-            <QuickActions />
-            <InsightsPanel weekActivities={dashboardData.weekActivities} />
-            <Reminders />
-          </div>
-        </div>
-      </div>
-    );
-          </div>
+      todayActivities.forEach((activity) => {
+        const start = new Date(activity.startTime);
+        const end = new Date(activity.endTime);
+        const minutes = (end - start) / (1000 * 60);
+        todayMinutes += minutes;
 
-          {/* Weekly Overview Chart */}
-          <div className="card chart-card">
-            <div className="card-header">
-              <h2>📊 Weekly Overview</h2>
-            </div>
-            <div className="bar-chart">
-              {Object.entries(dashboardData.dailyHours).map(([day, hours]) => (
-                <div key={day} className="chart-bar-wrapper">
-                  <div className="chart-bar-container">
-                    <div
-                      className="chart-bar"
-                      style={{
-                        height: `${(hours / maxDailyHours) * 100}%`,
-                        background:
-                          hours > 0
-                            ? "linear-gradient(135deg, #f4a5b9, #e08a9f)"
-                            : "#f0f0f0",
-                      }}
-                    >
-                      {hours > 0 && (
-                        <span className="chart-value">{hours.toFixed(1)}h</span>
-                      )}
-                    </div>
-                  </div>
-                  <div className="chart-label">{day}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+        if (!todayCategoryHours[activity.category]) {
+          todayCategoryHours[activity.category] = 0;
+        }
+        todayCategoryHours[activity.category] += minutes / 60;
+      });
 
-          {/* Weekly Performance */}
-          <div className="card performance-card">
-            <div className="card-header">
-              <h2>📈 Weekly Performance</h2>
-            </div>
-            <div className="performance-list">
-              {Object.entries(dashboardData.dailyHours).map(([day, hours]) => {
-                const percentage = Math.min(100, (hours / 8) * 100);
-                return (
-                  <div key={day} className="performance-item">
-                    <span className="perf-day">{day}:</span>
-                    <div className="perf-bar">
-                      <div
-                        className="perf-fill"
-                        style={{ width: `${percentage}%` }}
-                      ></div>
-                    </div>
-                    <span className="perf-value">
-                      {Math.round(percentage)}%
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+      const weekAgo = new Date(today);
+      weekAgo.setDate(weekAgo.getDate() - 7);
 
-        {/* Column 3: Actions & Insights */}
+      const weekActivities = activities.filter((activity) => {
+        const activityDate = new Date(activity.startTime);
+        return activityDate >= weekAgo;
+      });
+
+      const dailyHours = {};
+      const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+      for (let i = 6; i >= 0; i--) {
+        const day = new Date(today);
+        day.setDate(day.getDate() - i);
+        const dayName = days[day.getDay() === 0 ? 6 : day.getDay() - 1];
+        dailyHours[dayName] = 0;
+
+        weekActivities.forEach((activity) => {
+          const activityDate = new Date(activity.startTime);
+          activityDate.setHours(0, 0, 0, 0);
+          day.setHours(0, 0, 0, 0);
+
+          if (activityDate.getTime() === day.getTime()) {
+            const start = new Date(activity.startTime);
+            const end = new Date(activity.endTime);
+            const minutes = (end - start) / (1000 * 60);
+            dailyHours[dayName] += minutes / 60;
+          }
+        });
+      }
+
+      const goalTargets = {
+        work: 6,
+        learning: 2,
+        exercise: 1,
+        reading: 1,
+      };
+
+      const goalsProgress = {};
+      Object.keys(goalTargets).forEach((category) => {
+        const achieved = todayCategoryHours[category] || 0;
+        const target = goalTargets[category];
+        goalsProgress[category] = {
+          achieved: achieved.toFixed(1),
+          target,
+          percentage: Math.min(100, (achieved / target) * 100),
+        };
+      });
+
+      const totalGoalHours = Object.values(goalTargets).reduce(
+        (a, b) => a + b,
+        0
+      );
+      const achievedHours = Object.keys(goalTargets).reduce(
+        (sum, cat) => sum + (todayCategoryHours[cat] || 0),
+        0
+      );
+      const productivityScore = Math.round(
+        (achievedHours / totalGoalHours) * 100
+      );
+
+      return {
+        todayCompleted: todayActivities.length,
+        todayTimeTracked: (todayMinutes / 60).toFixed(1),
+        goalsAchieved: Object.values(goalsProgress).filter(
+          (g) => parseFloat(g.achieved) >= g.target
+        ).length,
+        totalGoals: Object.keys(goalTargets).length,
+        productivityScore: Math.min(100, productivityScore),
+        goalsProgress,
+        todayActivities: todayActivities.slice(0, 5).reverse(),
+        dailyHours,
+        todayCategoryHours,
+        weekActivities: weekActivities.length,
+      };
+    };
+
+    setDashboardData(calculateMetrics());
+  }, [activities]);
+
+  const categoryEmojis = {
+    work: "💼",
+    learning: "📚",
+    exercise: "💪",
+    reading: "📖",
+    break: "🍽️",
+    leisure: "🎮",
+    other: "📝",
+  };
+
+  const categoryColors = {
+    work: "#f4a5b9",
+    learning: "#e08a9f",
+    exercise: "#f9c9d6",
+    reading: "#fad4dd",
+    break: "#fce4ec",
+    leisure: "#f4a5b9",
+    other: "#e08a9f",
+  };
+
+  const formatTime = (date) =>
+    new Date(date).toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
+
+  const formatDuration = (start, end) => {
+    const minutes = (new Date(end) - new Date(start)) / (1000 * 60);
+    const hours = Math.floor(minutes / 60);
+    const mins = Math.round(minutes % 60);
+    if (hours > 0) return `${hours}h ${mins}m`;
+    return `${mins}m`;
+  };
+
+  if (!dashboardData) return null;
+
+  const maxDailyHours = Math.max(...Object.values(dashboardData.dailyHours), 8);
+
+  return (
+    <div className="dashboard">
+      <DashboardHeader currentTime={currentTime} />
+      <QuickStats
+        stats={{
+          todayCompleted: dashboardData.todayCompleted,
+          todayTimeTracked: dashboardData.todayTimeTracked,
+          goalsAchieved: dashboardData.goalsAchieved,
+          totalGoals: dashboardData.totalGoals,
+          productivityScore: dashboardData.productivityScore,
+        }}
+      />
+
+      <div className="dashboard-grid">
         <div className="dashboard-column">
-          {/* Quick Actions */}
-          <div className="card actions-card">
-            <div className="card-header">
-              <h2>⚡ Quick Actions</h2>
-            </div>
-            <div className="actions-grid">
-              <button className="action-btn">
-                <span className="action-icon">➕</span>
-                <span className="action-text">Log New Activity</span>
-              </button>
-              <button className="action-btn">
-                <span className="action-icon">⏱️</span>
-                <span className="action-text">Start Timer</span>
-              </button>
-              <button className="action-btn">
-                <span className="action-icon">🎯</span>
-                <span className="action-text">Set Daily Goal</span>
-              </button>
-              <button className="action-btn">
-                <span className="action-icon">📊</span>
-                <span className="action-text">View Weekly Report</span>
-              </button>
-              <button className="action-btn">
-                <span className="action-icon">⚙️</span>
-                <span className="action-text">Settings</span>
-              </button>
-            </div>
-          </div>
+          <ActivityTimeline
+            activities={dashboardData.todayActivities}
+            categoryColors={categoryColors}
+            categoryEmojis={categoryEmojis}
+            formatTime={formatTime}
+            formatDuration={formatDuration}
+          />
+          <RecentActivities
+            activities={activities.slice(0, 4)}
+            categoryColors={categoryColors}
+            categoryEmojis={categoryEmojis}
+            formatTime={formatTime}
+            formatDuration={formatDuration}
+          />
+        </div>
 
-          {/* Insights & Notifications */}
-          <div className="card insights-card">
-            <div className="card-header">
-              <h2>💡 Today's Insights</h2>
-            </div>
-            <div className="insights-list">
-              <div className="insight-item">
-                <span className="insight-icon">📊</span>
-                <p>Your most productive time is 10AM-12PM</p>
-              </div>
-              <div className="insight-item">
-                <span className="insight-icon">✅</span>
-                <p>You're on track to hit your work goal</p>
-              </div>
-              <div className="insight-item">
-                <span className="insight-icon">💪</span>
-                <p>
-                  Exercise consistency: {dashboardData.weekActivities}{" "}
-                  activities this week
-                </p>
-              </div>
-              <div className="insight-item">
-                <span className="insight-icon">🎯</span>
-                <p>Keep up the great tracking habit!</p>
-              </div>
-            </div>
-          </div>
+        <div className="dashboard-column">
+          <GoalsProgress
+            goals={dashboardData.goalsProgress}
+            categoryColors={categoryColors}
+            categoryEmojis={categoryEmojis}
+          />
+          <WeeklyOverview
+            dailyHours={dashboardData.dailyHours}
+            maxDailyHours={maxDailyHours}
+          />
+          <WeeklyPerformance dailyHours={dashboardData.dailyHours} />
+        </div>
 
-          {/* Upcoming & Reminders */}
-          <div className="card reminders-card">
-            <div className="card-header">
-              <h2>🔔 Reminders</h2>
-            </div>
-            <div className="reminders-list">
-              <div className="reminder-item">
-                <span className="reminder-icon">⏰</span>
-                <div className="reminder-content">
-                  <div className="reminder-title">Team meeting</div>
-                  <div className="reminder-time">4:00 PM</div>
-                </div>
-              </div>
-              <div className="reminder-item">
-                <span className="reminder-icon">📚</span>
-                <div className="reminder-content">
-                  <div className="reminder-title">Reading goal</div>
-                  <div className="reminder-time">7:00 PM (1h remaining)</div>
-                </div>
-              </div>
-              <div className="reminder-item">
-                <span className="reminder-icon">🎯</span>
-                <div className="reminder-content">
-                  <div className="reminder-title">Weekly review</div>
-                  <div className="reminder-time">2 goals due tomorrow</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="dashboard-column">
+          <QuickActions />
+          <InsightsPanel weekActivities={dashboardData.weekActivities} />
+          <Reminders />
         </div>
       </div>
     </div>

@@ -18,7 +18,11 @@
 
 /* Header Section */
 .dashboard-hero {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-dark)
+  );
   padding: 2.5rem;
   border-radius: 20px;
   box-shadow: 0 8px 30px var(--shadow-hover);
@@ -72,7 +76,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--primary-color)
+  );
   border-radius: 15px;
   flex-shrink: 0;
 }
@@ -137,7 +145,11 @@
 }
 
 .btn-add {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-dark)
+  );
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -282,7 +294,11 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: linear-gradient(to right, var(--primary-light), var(--secondary-color));
+  background: linear-gradient(
+    to right,
+    var(--primary-light),
+    var(--secondary-color)
+  );
   border-radius: 10px;
   transition: all 0.3s ease;
   border-left: 3px solid var(--primary-color);
@@ -506,7 +522,11 @@
 }
 
 .action-btn {
-  background: linear-gradient(135deg, var(--primary-light), var(--secondary-color));
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--secondary-color)
+  );
   border: 2px solid var(--primary-color);
   padding: 1rem;
   border-radius: 12px;
@@ -520,7 +540,11 @@
 }
 
 .action-btn:hover {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-dark)
+  );
   color: white;
   transform: translateX(5px);
   box-shadow: 0 4px 15px var(--shadow-hover);
@@ -590,7 +614,11 @@
   display: flex;
   gap: 1rem;
   padding: 1rem;
-  background: linear-gradient(to right, var(--primary-light), var(--secondary-color));
+  background: linear-gradient(
+    to right,
+    var(--primary-light),
+    var(--secondary-color)
+  );
   border-radius: 10px;
   border-left: 3px solid var(--primary-color);
   transition: all 0.3s ease;
