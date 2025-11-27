@@ -3,6 +3,7 @@ import Navigation from "./component/Navigation";
 import Home from "./component/Home";
 import Header from "./component/Header";
 import ActivityForm from "./component/ActivityForm";
+import Dashboard from "./component/Dashboard";
 import Footer from "./component/Footer";
 
 import "./App.css";
@@ -41,6 +42,10 @@ function App() {
       <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
       {currentPage === "home" ? (
         <Home onNavigate={handleNavigate} />
+      ) : currentPage === "dashboard" ? (
+        <>
+          <Dashboard activities={activities} />
+        </>
       ) : (
         <>
           <Header />

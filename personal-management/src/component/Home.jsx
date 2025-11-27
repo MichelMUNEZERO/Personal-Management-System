@@ -35,9 +35,17 @@ const Home = ({ onNavigate }) => {
           Your personal activity management system to track, analyze, and
           optimize your daily routine
         </p>
-        <button className="cta-button" onClick={() => onNavigate("logger")}>
-          Start Logging Activities
-        </button>
+        <div className="cta-buttons">
+          <button className="cta-button" onClick={() => onNavigate("logger")}>
+            Start Logging Activities
+          </button>
+          <button
+            className="cta-button secondary"
+            onClick={() => onNavigate("dashboard")}
+          >
+            View Dashboard
+          </button>
+        </div>
       </div>
 
       <div className="features-section">

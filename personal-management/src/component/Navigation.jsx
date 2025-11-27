@@ -18,7 +18,13 @@ const Navigation = ({ currentPage, onNavigate }) => {
           className={`nav-link ${currentPage === "logger" ? "active" : ""}`}
           onClick={() => onNavigate("logger")}
         >
-          📝 Login / Signup
+          📝 Logger
+        </button>
+        <button
+          className={`nav-link ${currentPage === "dashboard" ? "active" : ""}`}
+          onClick={() => onNavigate("dashboard")}
+        >
+          📊 Dashboard
         </button>
       </div>
     </nav>
