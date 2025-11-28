@@ -1,7 +1,6 @@
-.container {
+.app-shell {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background: linear-gradient(180deg, #f7faff 0%, #eef2ff 35%, #ffffff 100%);
 }
 
 @keyframes fadeIn {

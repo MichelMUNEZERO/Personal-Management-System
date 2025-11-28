@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import "./ActivityForm.css";
 
-const ActivityForm = ({ onAddActivity, activities = [] }) => {
+const ActivityForm = ({
+  onAddActivity,
+  activities = [],
+  showRecentActivities = true,
+}) => {
   const [activityName, setActivityName] = useState("");
   const [category, setCategory] = useState("");
   const [startTime, setStartTime] = useState("");
@@ -167,42 +171,46 @@ const ActivityForm = ({ onAddActivity, activities = [] }) => {
         </form>
       </div>
 
-      <div className="recent-activities">
-        <h2>Recent Activities</h2>
-        <div className="activity-list">
-          {activities.length === 0 ? (
-            <p style={{ textAlign: "center", color: "#666", padding: "20px" }}>
-              No activities logged yet. Start tracking your activities above!
-            </p>
-          ) : (
-            activities.map((activity) => (
-              <div key={activity.id} className="activity-item">
-                <div className="activity-header">
-                  <div className="activity-name">{activity.name}</div>
-                  <div
-                    className="activity-category"
-                    style={{ background: categoryColors[activity.category] }}
-                  >
-                    {activity.category.charAt(0).toUpperCase() +
-                      activity.category.slice(1)}
+      {showRecentActivities && (
+        <div className="recent-activities">
+          <h2>Recent Activities</h2>
+          <div className="activity-list">
+            {activities.length === 0 ? (
+              <p
+                style={{ textAlign: "center", color: "#666", padding: "20px" }}
+              >
+                No activities logged yet. Start tracking your activities above!
+              </p>
+            ) : (
+              activities.map((activity) => (
+                <div key={activity.id} className="activity-item">
+                  <div className="activity-header">
+                    <div className="activity-name">{activity.name}</div>
+                    <div
+                      className="activity-category"
+                      style={{ background: categoryColors[activity.category] }}
+                    >
+                      {activity.category.charAt(0).toUpperCase() +
+                        activity.category.slice(1)}
+                    </div>
                   </div>
+                  <div className="activity-time">
+                    Today, {formatTime(activity.startTime)} -{" "}
+                    {formatTime(activity.endTime)}
+                  </div>
+                  <div className="activity-duration">
+                    Duration:{" "}
+                    {calculateDuration(activity.startTime, activity.endTime)}
+                  </div>
+                  {activity.notes && (
+                    <div className="activity-notes">Note: {activity.notes}</div>
+                  )}
                 </div>
-                <div className="activity-time">
-                  Today, {formatTime(activity.startTime)} -{" "}
-                  {formatTime(activity.endTime)}
-                </div>
-                <div className="activity-duration">
-                  Duration:{" "}
-                  {calculateDuration(activity.startTime, activity.endTime)}
-                </div>
-                {activity.notes && (
-                  <div className="activity-notes">Note: {activity.notes}</div>
-                )}
-              </div>
-            ))
-          )}
+              ))
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

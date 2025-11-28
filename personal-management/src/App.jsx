@@ -1,15 +1,12 @@
 import { useState } from "react";
-import Navigation from "./component/Navigation";
-import Home from "./component/Home";
-import Header from "./component/Header";
-import ActivityForm from "./component/ActivityForm";
-import Dashboard from "./component/Dashboard";
-import Footer from "./component/Footer";
+import AuthPage from "./component/AuthPage";
+import UserDashboard from "./component/UserDashboard";
 
 import "./App.css";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("home");
+  const [authMode, setAuthMode] = useState("login");
+  const [user, setUser] = useState(null);
   const [activities, setActivities] = useState([
     {
       id: 1,
@@ -30,32 +27,34 @@ function App() {
   ]);
 
   const handleAddActivity = (activity) => {
-    setActivities([activity, ...activities]);
+    setActivities((prev) => [activity, ...prev]);
   };
 
-  const handleNavigate = (page) => {
-    setCurrentPage(page);
+  const handleAuthenticate = (profile) => {
+    setUser(profile);
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    setAuthMode("login");
   };
 
   return (
-    <div className="container">
-      <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
-      {currentPage === "home" ? (
-        <Home onNavigate={handleNavigate} />
-      ) : currentPage === "dashboard" ? (
-        <>
-          <Dashboard activities={activities} />
-        </>
+    <div className="app-shell">
+      {user ? (
+        <UserDashboard
+          user={user}
+          activities={activities}
+          onAddActivity={handleAddActivity}
+          onLogout={handleLogout}
+        />
       ) : (
-        <>
-          <Header />
-          <ActivityForm
-            onAddActivity={handleAddActivity}
-            activities={activities}
-          />
-        </>
+        <AuthPage
+          mode={authMode}
+          onToggleMode={setAuthMode}
+          onAuthenticate={handleAuthenticate}
+        />
       )}
-      <Footer />
     </div>
   );
 }
