@@ -2,8 +2,13 @@
   flex-shrink: 0;
   width: 240px;
   min-height: 100vh;
-  background: linear-gradient(180deg, #0f172a 0%, #111c44 70%, #0b1120 100%);
-  color: #e2e8f0;
+  background: linear-gradient(
+    180deg,
+    var(--primary-dark) 0%,
+    var(--primary-color) 60%,
+    var(--primary-light) 100%
+  );
+  color: var(--secondary-color);
   padding: 2rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -11,7 +16,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  box-shadow: 8px 0 40px rgba(8, 15, 40, 0.45);
+  box-shadow: 8px 0 40px rgba(244, 165, 185, 0.25);
 }
 
 .nav-brand {
@@ -28,13 +33,14 @@
   text-transform: uppercase;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
 }
 
 .nav-title {
   font-size: 1.15rem;
   font-weight: 700;
+  color: #fff;
 }
 
 .nav-links {
@@ -49,13 +55,13 @@
   background: transparent;
   border-radius: 16px;
   padding: 0.85rem 1rem;
-  color: #cbd5f5;
+  color: #ffffff;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 0.75rem;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .nav-link span {
@@ -64,12 +70,8 @@
 
 .nav-link.active,
 .nav-link:hover {
-  background: linear-gradient(
-    120deg,
-    rgba(59, 130, 246, 0.2),
-    rgba(99, 102, 241, 0.3)
-  );
-  color: #fff;
+  background: linear-gradient(120deg, #ffffff, #ffffff);
+  color: var(--primary-dark);
   transform: translateX(4px);
 }
 
@@ -79,19 +81,20 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 0 0;
-  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  border-top: 1px solid rgba(97, 85, 85, 0.25);
 }
 
 .nav-user-avatar {
-  width: 42px;
+  width: 60px;
   height: 42px;
   border-radius: 50%;
-  background: rgba(59, 130, 246, 0.25);
+  background: #7c3aed;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   letter-spacing: 0.03em;
+  color: #ffffff;
 }
 
 .nav-user-meta {
@@ -106,15 +109,15 @@
 .nav-user-meta p {
   margin: 0;
   font-size: 0.75rem;
-  color: #94a3b8;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .nav-logout {
   border: none;
-  background: rgba(15, 23, 42, 0.7);
-  color: #e2e8f0;
-  width: 36px;
-  height: 36px;
+  background: #7c3aed;
+  color: #000000;
+  width: 50px;
+  height: 50px;
   border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
