@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./LandingPages.css";
 import DailyFlow from "../assets/DailyFlowLogo.jpg";
 import { FaInstagram } from "react-icons/fa";
@@ -39,20 +40,12 @@ export default function LandingPages() {
             <a href="#about" onClick={closeMobileMenu}>
               About
             </a>
-            <button
-              href="./Auth/login"
-              className="cta-button"
-              onClick={closeMobileMenu}
-            >
+            <Link to="/login" className="cta-button" onClick={closeMobileMenu}>
               Sign In
-            </button>
-            <button
-              href="./Auth/signup"
-              className="cta-button"
-              onClick={closeMobileMenu}
-            >
+            </Link>
+            <Link to="/signup" className="cta-button" onClick={closeMobileMenu}>
               Sign Up
-            </button>
+            </Link>
           </nav>
 
           <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
@@ -76,35 +69,17 @@ export default function LandingPages() {
 
             <div className="hero-buttons">
               <a href="#dashboard" className="cta-button">
-                <i className="fas fa-rocket"></i> Start for Free
+                Start for Free
               </a>
               <a href="#features" className="secondary-button">
-                <i className="fas fa-play-circle"></i> See Features
+                See Features
               </a>
             </div>
 
             <div className="hero-stats">
-              <p>
-                <i
-                  className="fas fa-check-circle"
-                  style={{ color: "var(--secondary)" }}
-                ></i>{" "}
-                10,000+ productive users
-              </p>
-              <p>
-                <i
-                  className="fas fa-check-circle"
-                  style={{ color: "var(--secondary)" }}
-                ></i>{" "}
-                2.5M+ tasks completed
-              </p>
-              <p>
-                <i
-                  className="fas fa-check-circle"
-                  style={{ color: "var(--secondary)" }}
-                ></i>{" "}
-                98% user satisfaction
-              </p>
+              <p>10,000+ productive users</p>
+              <p>2.5M+ tasks completed</p>
+              <p>98% user satisfaction</p>
             </div>
           </div>
 
@@ -116,9 +91,7 @@ export default function LandingPages() {
             />
 
             <div className="floating-element">
-              <div className="floating-icon timer-icon">
-                <i className="fas fa-hourglass-half"></i>
-              </div>
+              <div className="floating-icon timer-icon"></div>
               <div>
                 <strong>Smart Timer</strong>
                 <p>25 min focus</p>
@@ -126,9 +99,7 @@ export default function LandingPages() {
             </div>
 
             <div className="floating-element">
-              <div className="floating-icon task-icon">
-                <i className="fas fa-tasks"></i>
-              </div>
+              <div className="floating-icon task-icon"></div>
               <div>
                 <strong>Task Completed</strong>
                 <p>Daily goal: 8/10</p>
@@ -140,7 +111,7 @@ export default function LandingPages() {
 
       {/* Features Section */}
       <section className="features" id="features">
-        <div className="container">
+        <div>
           <div className="section-title">
             <h2>Powerful Features for Maximum Productivity</h2>
             <p>
