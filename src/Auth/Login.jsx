@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import "./Login.css";
+import "../App.css";
 
 export default function Login() {
   const navigate = useNavigate();
