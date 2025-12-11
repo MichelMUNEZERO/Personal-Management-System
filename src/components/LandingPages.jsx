@@ -1,31 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LandingPages.css";
+import DailyFlow from "../assets/DailyFlowLogo.jpg";
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { AiFillTikTok } from "react-icons/ai";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FcParallelTasks } from "react-icons/fc";
+import { FaChartLine } from "react-icons/fa";
+import { MdOutlineTimer10Select } from "react-icons/md";
+import { CgMenuGridO } from "react-icons/cg";
 
 export default function LandingPages() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <div>
       <header>
         <div className="container header-container">
           <a href="#" className="logo">
-            <div className="logo-icon">
-              <i className="fas fa-clock"></i>
-            </div>
-            <div className="logo-text">
-              Focus<span>Flow</span>
-            </div>
+            <img src={DailyFlow} alt="DailyFlow Manager Logo" />
           </a>
 
-          <nav className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#features">Features</a>
-            <a href="#about">About</a>
-            <a href="#dashboard" className="cta-button">
-              Try Dashboard
+          <nav className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
+            <a href="#home" onClick={closeMobileMenu}>
+              Home
             </a>
+            <a href="#features" onClick={closeMobileMenu}>
+              Features
+            </a>
+            <a href="#about" onClick={closeMobileMenu}>
+              About
+            </a>
+            <button
+              href="./Auth/login"
+              className="cta-button"
+              onClick={closeMobileMenu}
+            >
+              Sign In
+            </button>
+            <button
+              href="./Auth/signup"
+              className="cta-button"
+              onClick={closeMobileMenu}
+            >
+              Sign Up
+            </button>
           </nav>
 
-          <button className="mobile-menu-btn" id="mobileMenuBtn">
-            <i className="fas fa-bars"></i>
+          <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+            <CgMenuGridO />
           </button>
         </div>
       </header>
@@ -35,11 +66,11 @@ export default function LandingPages() {
         <div className="container hero-container">
           <div className="hero-content">
             <h1>
-              Master Your Time with <span>Pomodoro Power</span>
+              Master Your Time with <span>DailyFlow Manager</span>
             </h1>
             <p>
-              FocusFlow combines the proven Pomodoro technique with intelligent
-              task management to boost your productivity, reduce
+              DailyFlow Manager combines the proven Pomodoro technique with
+              intelligent task management to boost your productivity, reduce
               procrastination, and help you achieve more in less time.
             </p>
 
@@ -121,7 +152,7 @@ export default function LandingPages() {
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">
-                <i className="fas fa-clock"></i>
+                <MdOutlineTimer10Select size={40} />
               </div>
               <h3>Pomodoro Timer</h3>
               <p>
@@ -132,7 +163,7 @@ export default function LandingPages() {
 
             <div className="feature-card">
               <div className="feature-icon">
-                <i className="fas fa-tasks"></i>
+                <FcParallelTasks size={40} />
               </div>
               <h3>Smart Task Management</h3>
               <p>
@@ -143,7 +174,7 @@ export default function LandingPages() {
 
             <div className="feature-card">
               <div className="feature-icon">
-                <i className="fas fa-chart-line"></i>
+                <FaChartLine size={40} />
               </div>
               <h3>Productivity Analytics</h3>
               <p>
@@ -166,12 +197,12 @@ export default function LandingPages() {
           </div>
 
           <div className="about-content">
-            <h2>Why Choose FocusFlow?</h2>
+            <h2>Why Choose DailyFlow Manager?</h2>
             <p>
-              FocusFlow was created to solve a common problem: how to stay
-              productive in a world full of distractions. We combine time-tested
-              techniques with modern technology to help you take control of your
-              time.
+              DailyFlow Manager was created to solve a common problem: how to
+              stay productive in a world full of distractions. We combine
+              time-tested techniques with modern technology to help you take
+              control of your time.
             </p>
 
             <p>
@@ -209,23 +240,23 @@ export default function LandingPages() {
       <footer>
         <div className="container footer-container">
           <div className="footer-column">
-            <h3>FocusFlow</h3>
+            <h3>DailyFlow Manager</h3>
             <p>
               Your personal productivity companion. Master your time, accomplish
               more, and reduce stress with intelligent time management tools.
             </p>
             <div className="social-links">
               <a href="#">
-                <i className="fab fa-twitter"></i>
+                <FaInstagram />
               </a>
               <a href="#">
-                <i className="fab fa-facebook-f"></i>
+                <FaFacebook />
               </a>
               <a href="#">
-                <i className="fab fa-instagram"></i>
+                <AiFillTikTok />
               </a>
               <a href="#">
-                <i className="fab fa-linkedin-in"></i>
+                <FaSquareXTwitter />
               </a>
             </div>
           </div>
@@ -270,10 +301,10 @@ export default function LandingPages() {
             <h3>Contact</h3>
             <ul className="footer-links">
               <li>
-                <i className="fas fa-envelope"></i> hello@focusflow.com
+                <i className="fas fa-envelope"></i> dailyflowmanager@gmail.com
               </li>
               <li>
-                <i className="fas fa-phone"></i> +1 (555) 123-4567
+                <i className="fas fa-phone"></i> +250 791 268 906
               </li>
               <li>
                 <i className="fas fa-map-marker-alt"></i> 123 Productivity St,
@@ -286,9 +317,9 @@ export default function LandingPages() {
         <div className="container">
           <div className="footer-bottom">
             <p>
-              &copy; 2023 FocusFlow. All rights reserved. | Designed with{" "}
-              <i className="fas fa-heart" style={{ color: "#e74c3c" }}></i> for
-              productive minds
+              &copy; 2023 DailyFlow Manager. All rights reserved. | Designed
+              with <i className="fas fa-heart" style={{ color: "#e74c3c" }}></i>{" "}
+              for productive minds
             </p>
           </div>
         </div>
