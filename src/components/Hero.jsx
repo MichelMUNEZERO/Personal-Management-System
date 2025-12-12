@@ -14,12 +14,12 @@ export default function Hero() {
         <div className="hero-container">
           <div className="hero-content">
             <h1>
-              Master Your Time with <span>Pomodoro Power</span>
+              Master Your Time with <span>Daily Flow</span>
             </h1>
             <p>
-              FocusFlow combines the proven Pomodoro technique with intelligent
-              task management to boost your productivity, reduce
-              procrastination, and help you achieve more in less time.
+              Daily Flow combines the proven technique with intelligent task
+              management to boost your productivity, reduce procrastination, and
+              help you achieve more in less time.
             </p>
 
             <div className="hero-buttons">
@@ -38,7 +38,7 @@ export default function Hero() {
               </p>
               <p>
                 <FaRegCircleCheck style={{ color: "var(--secondary)" }} /> 2.5M+
-                tasks completed 2.5M+ tasks completed
+                tasks completed
               </p>
               <p>
                 <FaRegCircleCheck style={{ color: "var(--secondary)" }} />

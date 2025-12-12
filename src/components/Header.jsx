@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import logo from "../assets/DailyFlowLogo.jpg";
+import { CgMenuGridR } from "react-icons/cg";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <div>
       <header>
@@ -13,24 +20,47 @@ export default function Header() {
               Daily<span>Flow</span>
             </div>
           </a>
-          <nav className="nav-links">
+
+          <div
+            className={`hamburger ${menuOpen ? "active" : ""}`}
+            onClick={toggleMenu}
+          >
+            <CgMenuGridR />
+          </div>
+
+          <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
             <ul>
               <li>
-                <a href="#home">Home</a>
+                <a href="#home" onClick={() => setMenuOpen(false)}>
+                  Home
+                </a>
               </li>
               <li>
-                <a href="#features">Features</a>
+                <a href="#features" onClick={() => setMenuOpen(false)}>
+                  Features
+                </a>
               </li>
               <li>
-                <a href="#about">About</a>
+                <a href="#about" onClick={() => setMenuOpen(false)}>
+                  About
+                </a>
               </li>
             </ul>
+            <div className="auth-buttons">
+              <button
+                className="button-sign-in"
+                onClick={() => setMenuOpen(false)}
+              >
+                Sign In
+              </button>
+              <button
+                className="button-sign-up"
+                onClick={() => setMenuOpen(false)}
+              >
+                Sign Up
+              </button>
+            </div>
           </nav>
-
-          <div className="auth-buttons">
-            <button className="button-sign-in">Sign In</button>
-            <button className="button-sign-up">Sign Up</button>
-          </div>
         </div>
       </header>
     </div>

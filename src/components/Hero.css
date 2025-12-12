@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 6rem 4rem;
+  margin-top: 56px;
   background: linear-gradient(
     135deg,
     rgba(52, 152, 219, 0.1) 0%,
@@ -10,7 +11,8 @@
   );
   overflow: hidden;
   gap: 40px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-container {
@@ -145,4 +147,151 @@
 }
 
 .floating-element p {
+}
+
+.menu-icon {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.menu-icon:hover {
+  background-color: var(--primary-dark);
+  transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .hero-stats {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .First-button,
+  .secondary-button {
+    width: 100%;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .floating-element {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .floating-element:first-of-type {
+    top: 0;
+    left: 0;
+  }
+
+  .floating-element:last-of-type {
+    bottom: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 26px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .First-button,
+  .secondary-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .hero-stats p {
+    font-size: 14px;
+  }
+
+  .floating-element {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .floating-icon {
+    font-size: 16px;
+  }
+
+  .floating-element strong {
+    font-size: 12px;
+  }
+
+  .floating-element p {
+    font-size: 11px;
+  }
 }
