@@ -21,13 +21,6 @@ export default function Header() {
             </div>
           </a>
 
-          <div
-            className={`hamburger ${menuOpen ? "active" : ""}`}
-            onClick={toggleMenu}
-          >
-            <CgMenuGridR />
-          </div>
-
           <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
             <ul>
               <li>
@@ -46,7 +39,7 @@ export default function Header() {
                 </a>
               </li>
             </ul>
-            <div className="auth-buttons">
+            <div className="auth-buttons-mobile">
               <button
                 className="button-sign-in"
                 onClick={() => setMenuOpen(false)}
@@ -61,6 +54,28 @@ export default function Header() {
               </button>
             </div>
           </nav>
+
+          <div className="auth-buttons">
+            <button
+              className="button-sign-in"
+              onClick={() => setMenuOpen(false)}
+            >
+              Sign In
+            </button>
+            <button
+              className="button-sign-up"
+              onClick={() => setMenuOpen(false)}
+            >
+              Sign Up
+            </button>
+          </div>
+
+          <div
+            className={`hamburger ${menuOpen ? "active" : ""}`}
+            onClick={toggleMenu}
+          >
+            <CgMenuGridR />
+          </div>
         </div>
       </header>
     </div>
