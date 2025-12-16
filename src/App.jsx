@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Dashboard from "./Pages/Dashboard";
 import Features from "./components/Features";
+import Footer from "./components/Footer";
 
 function HomePage() {
   return (
@@ -12,6 +13,7 @@ function HomePage() {
       <Header />
       <Hero />
       <Features />
+      <Footer />
     </>
   );
 }
