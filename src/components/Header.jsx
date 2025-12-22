@@ -1,13 +1,20 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Header.css";
 import logo from "../assets/DailyFlowLogo.jpg";
 import { CgMenuGridR } from "react-icons/cg";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleSignIn = () => {
+    setMenuOpen(false);
+    navigate("/login");
   };
 
   return (
@@ -40,10 +47,7 @@ export default function Header() {
               </li>
             </ul>
             <div className="auth-buttons-mobile">
-              <button
-                className="button-sign-in"
-                onClick={() => setMenuOpen(false)}
-              >
+              <button className="button-sign-in" onClick={handleSignIn}>
                 Sign In
               </button>
               <button
@@ -56,10 +60,7 @@ export default function Header() {
           </nav>
 
           <div className="auth-buttons">
-            <button
-              className="button-sign-in"
-              onClick={() => setMenuOpen(false)}
-            >
+            <button className="button-sign-in" onClick={handleSignIn}>
               Sign In
             </button>
             <button
