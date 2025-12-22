@@ -37,7 +37,7 @@ export default function Login() {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
+              placeholder="shemarnourd@gmail.com"
               required
             />
           </div>
@@ -76,9 +76,9 @@ export default function Login() {
         <div className="login-footer">
           <p>
             Don't have an account?{" "}
-            <a href="#" className="signup-link">
+            <Link to="/signup" className="signup-link">
               Sign up
-            </a>
+            </Link>
           </p>
         </div>
       </div>
