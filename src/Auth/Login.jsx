@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import "./Login.css";
 
 export default function Login() {
@@ -18,6 +19,12 @@ export default function Login() {
     <div className="login-container">
       <div className="login-box">
         <div className="login-header">
+          <div className="back-site">
+            <a href="#">
+              <IoIosArrowRoundBack />
+              Back to site
+            </a>
+          </div>
           <h1>Welcome Back</h1>
           <p>Sign in to continue to DailyFlow</p>
         </div>
