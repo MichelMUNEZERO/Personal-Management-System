@@ -16,6 +16,10 @@ export default function Header() {
     setMenuOpen(false);
     navigate("/login");
   };
+  const handleSignUp = () => {
+    setMenuOpen(false);
+    navigate("/signup");
+  };
 
   return (
     <div>
@@ -50,10 +54,7 @@ export default function Header() {
               <button className="button-sign-in" onClick={handleSignIn}>
                 Sign In
               </button>
-              <button
-                className="button-sign-up"
-                onClick={() => setMenuOpen(false)}
-              >
+              <button className="button-sign-up" onClick={handleSignUp}>
                 Sign Up
               </button>
             </div>
@@ -63,10 +64,7 @@ export default function Header() {
             <button className="button-sign-in" onClick={handleSignIn}>
               Sign In
             </button>
-            <button
-              className="button-sign-up"
-              onClick={() => setMenuOpen(false)}
-            >
+            <button className="button-sign-up" onClick={handleSignUp}>
               Sign Up
             </button>
           </div>
