@@ -1,0 +1,744 @@
+/* Dashboard Layout */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #5a6945 0%, #4a5939 100%);
+  color: white;
+  padding: 20px 15px;
+  overflow-y: auto;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.sidebar-header {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.sidebar-section {
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.section-title svg {
+  font-size: 12px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  padding: 10px 12px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.sidebar-menu li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu li.active {
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: 600;
+}
+
+.sidebar-menu li svg {
+  font-size: 16px;
+}
+
+/* Main Content */
+.dashboard-main {
+  flex: 1;
+  margin-left: 220px;
+  padding: 30px;
+  background-color: #f5f5f5;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+/* Calendar Card */
+.calendar-card {
+  background: #5a6945;
+  border-radius: 16px;
+  padding: 25px;
+  color: white;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.calendar-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.calendar-subtitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.monthly-goal {
+  text-align: right;
+}
+
+.goal-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 5px;
+}
+
+.goal-percentage {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.calendar-month {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.month-name {
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.complete-badge {
+  background: #ff8c42;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.calendar-day-header {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 8px 0;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.calendar-day:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day.today {
+  background: #ff8c42;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.calendar-day.empty {
+  background: transparent;
+  cursor: default;
+}
+
+.sync-button {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sync-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Daily Overview Card */
+.daily-overview {
+  background: #6b7a58;
+  border-radius: 16px;
+  padding: 25px;
+  color: white;
+}
+
+.time-sections {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.time-section {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.mood-section {
+  margin-bottom: 20px;
+}
+
+.mood-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.mood-subtitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mood-progress {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.mood-progress-bar {
+  height: 100%;
+  background: #ff8c42;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.overall-info {
+  margin-bottom: 20px;
+}
+
+.info-title {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 15px;
+}
+
+.info-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-item {
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.task-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.task-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+}
+
+.task-box-number {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.task-box-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Upcoming Tasks Card */
+.upcoming-tasks {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2d3319;
+  margin-bottom: 20px;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-item:hover {
+  padding-left: 5px;
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.task-checkbox.completed {
+  background: #ff8c42;
+  border-color: #ff8c42;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+}
+
+.task-checkbox.in-progress {
+  background: #ff8c42;
+  border-color: #ff8c42;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 14px;
+  color: #2d3319;
+}
+
+.task-text.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Bottom Grid */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+/* Goals Card */
+.goals-card {
+  background: #5a6945;
+  border-radius: 16px;
+  padding: 25px;
+  color: white;
+  position: relative;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.edit-icon {
+  cursor: pointer;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.edit-icon:hover {
+  color: white;
+}
+
+.goal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goal-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.goal-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #ff8c42;
+  flex-shrink: 0;
+}
+
+.goal-icon.completed {
+  background: #ff8c42;
+}
+
+/* Reminders Card */
+.reminders-card {
+  background: #4a5939;
+  border-radius: 16px;
+  padding: 25px;
+  color: white;
+}
+
+.reminder-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reminder-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px;
+  position: relative;
+}
+
+.reminder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.reminder-title {
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.reminder-menu {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.reminder-time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.reminder-badge {
+  background: #ff8c42;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Achievement Card */
+.achievement-card {
+  background: #6b7a58;
+  border-radius: 16px;
+  padding: 25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.achievement-icon {
+  width: 50px;
+  height: 50px;
+  background: #ff8c42;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.achievement-content {
+  flex: 1;
+}
+
+.achievement-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.achievement-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.achievement-link {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+/* Timer and Affirmation */
+.timer-affirmation-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 25px;
+}
+
+/* Pomodoro Timer */
+.pomodoro-card {
+  background: #ff8c42;
+  border-radius: 16px;
+  padding: 30px;
+  color: white;
+  text-align: center;
+}
+
+.timer-label {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.timer-display {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.timer-button {
+  background: white;
+  color: #ff8c42;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.timer-button:hover {
+  transform: scale(1.1);
+}
+
+/* Daily Affirmation */
+.affirmation-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.affirmation-content {
+  flex: 1;
+}
+
+.affirmation-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d3319;
+  margin-bottom: 12px;
+}
+
+.affirmation-text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.affirmation-icon {
+  width: 50px;
+  height: 50px;
+  background: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.affirmation-icon:hover {
+  background: #e0e0e0;
+  transform: scale(1.05);
+}
+
+.refresh-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.refresh-button:hover {
+  color: #666;
+  transform: rotate(180deg);
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 968px) {
+  .sidebar {
+    width: 70px;
+    padding: 20px 10px;
+  }
+
+  .sidebar-header,
+  .section-title span,
+  .sidebar-menu li span {
+    display: none;
+  }
+
+  .dashboard-main {
+    margin-left: 70px;
+  }
+
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timer-affirmation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .dashboard-main {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .task-boxes {
+    grid-template-columns: 1fr;
+  }
+}
