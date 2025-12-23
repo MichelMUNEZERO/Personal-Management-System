@@ -13,6 +13,8 @@ import {
   FaSync,
   FaCheck,
   FaUser,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
 import "./Dashboard.css";
 
@@ -20,6 +22,7 @@ export default function Dashboard() {
   const [currentDate] = useState(new Date());
   const [pomodoroTime, setPomodoroTime] = useState({ minutes: 25, seconds: 0 });
   const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Calendar data
   const daysInMonth = new Date(2026, 11, 0).getDate(); // December 2025
@@ -79,8 +82,23 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container">
+      {/* Mobile Menu Toggle */}
+      <button
+        className="menu-toggle"
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        aria-label="Toggle menu"
+      >
+        {isSidebarOpen ? <FaTimes /> : <FaBars />}
+      </button>
+
+      {/* Sidebar Overlay */}
+      <div
+        className={`sidebar-overlay ${isSidebarOpen ? "active" : ""}`}
+        onClick={() => setIsSidebarOpen(false)}
+      ></div>
+
       {/* Sidebar */}
-      <aside className="sidebar">
+      <aside className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <div className="sidebar-header">2026 Planner</div>
 
         <div className="sidebar-section">

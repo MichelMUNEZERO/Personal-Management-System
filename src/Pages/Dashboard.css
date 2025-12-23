@@ -684,6 +684,16 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1600px) {
+  .dashboard-grid {
+    gap: 20px;
+  }
+
+  .bottom-grid {
+    gap: 20px;
+  }
+}
+
 @media (max-width: 1400px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
@@ -692,22 +702,42 @@
   .bottom-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .calendar-card {
+    padding: 20px;
+  }
+
+  .daily-overview {
+    padding: 20px;
+  }
 }
 
-@media (max-width: 968px) {
+@media (max-width: 1200px) {
   .sidebar {
     width: 70px;
     padding: 20px 10px;
   }
 
-  .sidebar-header,
-  .section-title span,
+  .sidebar-header {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .section-title span {
+    display: none;
+  }
+
   .sidebar-menu li span {
     display: none;
   }
 
+  .sidebar-menu li {
+    justify-content: center;
+  }
+
   .dashboard-main {
     margin-left: 70px;
+    padding: 20px;
   }
 
   .bottom-grid {
@@ -717,28 +747,379 @@
   .timer-affirmation-grid {
     grid-template-columns: 1fr;
   }
+
+  .calendar-month {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 }
 
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-  }
-
-  .sidebar.open {
-    transform: translateX(0);
-  }
-
+@media (max-width: 968px) {
   .dashboard-main {
     margin-left: 0;
     padding: 15px;
+    padding-top: 70px;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -220px;
+    width: 220px;
+    padding: 20px 15px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-header {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .section-title span {
+    display: block;
+  }
+
+  .sidebar-menu li span {
+    display: block;
+  }
+
+  .sidebar-menu li {
+    justify-content: flex-start;
+  }
+
+  .calendar-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .monthly-goal {
+    text-align: left;
+  }
+
+  .month-name {
+    font-size: 28px;
+  }
+
+  .info-stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .stat-number {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding: 10px;
+    padding-top: 60px;
+  }
+
+  .dashboard-grid {
+    gap: 15px;
+  }
+
+  .bottom-grid {
+    gap: 15px;
+  }
+
+  .calendar-card,
+  .daily-overview,
+  .upcoming-tasks,
+  .goals-card,
+  .reminders-card,
+  .achievement-card,
+  .pomodoro-card,
+  .affirmation-card {
+    padding: 15px;
+  }
+
+  .card-title {
+    font-size: 16px;
   }
 
   .calendar-grid {
     gap: 4px;
   }
 
+  .calendar-day {
+    font-size: 12px;
+  }
+
+  .calendar-day.today {
+    font-size: 14px;
+  }
+
+  .calendar-day-header {
+    font-size: 10px;
+  }
+
+  .task-boxes {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .task-box {
+    padding: 10px;
+  }
+
+  .task-box-number {
+    font-size: 20px;
+  }
+
+  .time-sections {
+    gap: 10px;
+  }
+
+  .timer-display {
+    font-size: 36px;
+  }
+
+  .affirmation-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .achievement-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .reminder-list {
+    gap: 10px;
+  }
+
+  .task-checkbox {
+    width: 24px;
+    height: 24px;
+  }
+
+  .goal-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sidebar-menu li {
+    padding: 12px;
+  }
+
+  .edit-icon,
+  .reminder-menu {
+    padding: 8px;
+    margin: -8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .calendar-card {
+    padding: 12px;
+  }
+
+  .calendar-header {
+    gap: 10px;
+  }
+
+  .calendar-title {
+    font-size: 13px;
+  }
+
+  .calendar-subtitle {
+    font-size: 11px;
+  }
+
+  .month-name {
+    font-size: 24px;
+  }
+
+  .complete-badge {
+    font-size: 11px;
+    padding: 4px 12px;
+  }
+
+  .goal-percentage {
+    font-size: 24px;
+  }
+
+  .sync-button {
+    font-size: 13px;
+    padding: 10px;
+  }
+
   .task-boxes {
     grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .upcoming-tasks {
+    padding: 12px;
+  }
+
+  .task-item {
+    padding: 8px 0;
+  }
+
+  .task-text {
+    font-size: 13px;
+  }
+
+  .reminder-item {
+    padding: 12px;
+  }
+
+  .reminder-title {
+    font-size: 13px;
+  }
+
+  .timer-display {
+    font-size: 32px;
+  }
+
+  .affirmation-text {
+    font-size: 13px;
+  }
+
+  .goal-item {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-main {
+    padding: 8px;
+    padding-top: 60px;
+  }
+
+  .calendar-grid {
+    gap: 2px;
+  }
+
+  .calendar-day {
+    font-size: 11px;
+    border-radius: 4px;
+  }
+
+  .calendar-day.today {
+    font-size: 12px;
+  }
+
+  .calendar-day-header {
+    font-size: 9px;
+    padding: 4px 0;
+  }
+
+  .month-name {
+    font-size: 20px;
+  }
+
+  .stat-number {
+    font-size: 20px;
+  }
+
+  .timer-display {
+    font-size: 28px;
+  }
+
+  .timer-button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .affirmation-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .achievement-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .card-header h3 {
+    font-size: 14px;
+  }
+
+  .reminder-badge {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+}
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  background: #5a6945;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 968px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Overlay for mobile sidebar */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.sidebar-overlay.active {
+  display: block;
+}
+
+/* Landscape phone optimization */
+@media (max-width: 968px) and (orientation: landscape) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .timer-affirmation-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .bottom-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
