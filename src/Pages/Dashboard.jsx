@@ -25,8 +25,8 @@ export default function Dashboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Calendar data
-  const daysInMonth = new Date(2026, 11, 0).getDate(); // December 2025
-  const firstDayOfMonth = new Date(2026, 11, 1).getDay();
+  const daysInMonth = new Date(2025, 11, 0).getDate(); // December 2025
+  const firstDayOfMonth = new Date(2025, 11, 1).getDay();
 
   const dayNames = ["SUN", "MON", "TUE", "WED", "THUR", "FRI", "SAT"];
 
@@ -161,7 +161,7 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <main className="dashboard-main">
-        {/* Top Grid - Calendar and Daily Overview */}
+        {/* Top Grid - Calendar, Daily Overview, and Upcoming Tasks */}
         <div className="dashboard-grid">
           {/* Monthly Schedule Calendar */}
           <div className="calendar-card">
@@ -204,8 +204,17 @@ export default function Dashboard() {
             </div>
 
             <div className="mood-section">
-              <div className="mood-title">My mood: Regular</div>
-              <div className="mood-subtitle">4 more tasks to complete</div>
+              <div className="mood-header">
+                <div>
+                  <div className="mood-title">My mood: Regular</div>
+                  <div className="mood-subtitle">4 more tasks to complete</div>
+                </div>
+                <div className="energy-badge">
+                  energy
+                  <br />
+                  GU
+                </div>
+              </div>
               <div className="mood-progress">
                 <div
                   className="mood-progress-bar"
@@ -243,27 +252,27 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Upcoming Tasks */}
-        <div className="upcoming-tasks">
-          <h3 className="card-title">Upcoming tasks</h3>
-          <ul className="task-list">
-            {upcomingTasks.map((task) => (
-              <li key={task.id} className="task-item">
-                <div className={`task-checkbox ${task.status}`}>
-                  {task.status === "completed" && <FaCheck />}
-                </div>
-                <span
-                  className={`task-text ${
-                    task.status === "completed" ? "completed" : ""
-                  }`}
-                >
-                  {task.text}
-                </span>
-              </li>
-            ))}
-          </ul>
+          {/* Upcoming Tasks */}
+          <div className="upcoming-tasks">
+            <h3 className="card-title">Upcoming tasks</h3>
+            <ul className="task-list">
+              {upcomingTasks.map((task) => (
+                <li key={task.id} className="task-item">
+                  <div className={`task-checkbox ${task.status}`}>
+                    {task.status === "completed" && <FaCheck />}
+                  </div>
+                  <span
+                    className={`task-text ${
+                      task.status === "completed" ? "completed" : ""
+                    }`}
+                  >
+                    {task.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom Grid - Goals, Reminders, Week Goals */}

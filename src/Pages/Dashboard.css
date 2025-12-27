@@ -2,7 +2,7 @@
 .dashboard-container {
   display: flex;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
 }
 
 /* Sidebar */
@@ -89,7 +89,7 @@
 /* Dashboard Grid */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr 1fr;
   gap: 25px;
   margin-bottom: 25px;
 }
@@ -98,7 +98,7 @@
 .calendar-card {
   background: #5a6945;
   border-radius: 16px;
-  padding: 25px;
+  padding: 15px;
   color: white;
 }
 
@@ -106,18 +106,18 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 .calendar-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .calendar-subtitle {
-  font-size: 12px;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -126,50 +126,50 @@
 }
 
 .goal-label {
-  font-size: 12px;
+  font-size: 10px;
   color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .goal-percentage {
-  font-size: 28px;
+  font-size: 18px;
   font-weight: 700;
 }
 
 .calendar-month {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .month-name {
-  font-size: 36px;
+  font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .complete-badge {
   background: #ff8c42;
-  padding: 6px 16px;
+  padding: 4px 10px;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
 }
 
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 4px;
+  margin-bottom: 8px;
 }
 
 .calendar-day-header {
   text-align: center;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.6);
-  padding: 8px 0;
+  padding: 5px 0;
 }
 
 .calendar-day {
@@ -177,8 +177,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 6px;
+  font-size: 12px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -192,7 +192,7 @@
 .calendar-day.today {
   background: #ff8c42;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .calendar-day.empty {
@@ -202,12 +202,12 @@
 
 .sync-button {
   width: 100%;
-  padding: 12px;
+  padding: 8px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   color: white;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -220,45 +220,70 @@
 .daily-overview {
   background: #6b7a58;
   border-radius: 16px;
-  padding: 25px;
+  padding: 12px;
   color: white;
 }
 
 .time-sections {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 25px;
-  padding-bottom: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .time-section {
   text-align: center;
-  font-size: 12px;
+  font-size: 10px;
   color: rgba(255, 255, 255, 0.8);
 }
 
 .mood-section {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.mood-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.energy-badge {
+  background: #ff8c42;
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  padding: 8px 10px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-transform: lowercase;
 }
 
 .mood-title {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .mood-subtitle {
-  font-size: 12px;
+  font-size: 10px;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .mood-progress {
   width: 100%;
-  height: 8px;
+  height: 5px;
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  margin-top: 10px;
+  border-radius: 3px;
+  margin-top: 6px;
   overflow: hidden;
 }
 
@@ -270,13 +295,13 @@
 }
 
 .overall-info {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .info-title {
-  font-size: 12px;
+  font-size: 10px;
   color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 .info-stats {
@@ -289,43 +314,43 @@
 }
 
 .stat-number {
-  font-size: 28px;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .stat-label {
-  font-size: 12px;
+  font-size: 10px;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .task-boxes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 8px;
 }
 
 .task-box {
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 15px;
+  border-radius: 10px;
+  padding: 10px 8px;
   text-align: center;
 }
 
 .task-box-number {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .task-box-label {
-  font-size: 11px;
+  font-size: 10px;
   color: rgba(255, 255, 255, 0.7);
 }
 
 /* Upcoming Tasks Card */
 .upcoming-tasks {
-  background: white;
+  background: #5a6945;
   border-radius: 16px;
   padding: 25px;
 }
@@ -333,7 +358,7 @@
 .card-title {
   font-size: 18px;
   font-weight: 700;
-  color: #2d3319;
+  color: white;
   margin-bottom: 20px;
 }
 
@@ -348,7 +373,7 @@
   align-items: center;
   gap: 12px;
   padding: 12px 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -364,7 +389,7 @@
 .task-checkbox {
   width: 20px;
   height: 20px;
-  border: 2px solid #ddd;
+  border: 2px solid #ff8c42;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -387,12 +412,12 @@
 .task-text {
   flex: 1;
   font-size: 14px;
-  color: #2d3319;
+  color: white;
 }
 
 .task-text.completed {
   text-decoration: line-through;
-  color: #999;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Bottom Grid */
