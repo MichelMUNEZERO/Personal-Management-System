@@ -19,6 +19,7 @@ import {
   FaCog,
   FaTasks,
   FaTrophy,
+  FaStickyNote,
 } from "react-icons/fa";
 import "./Dashboard.css";
 
@@ -170,6 +171,12 @@ export default function Dashboard() {
             <span>UTILITY</span>
             <FaChevronDown />
           </div>
+          <ul className="sidebar-menu">
+            <li onClick={() => navigate("/notes")}>
+              <FaStickyNote />
+              <span>Notes</span>
+            </li>
+          </ul>
         </div>
 
         <div className="sidebar-section">
