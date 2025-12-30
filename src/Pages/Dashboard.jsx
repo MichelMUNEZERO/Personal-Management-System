@@ -18,6 +18,7 @@ import {
   FaTimes,
   FaCog,
   FaTasks,
+  FaTrophy,
 } from "react-icons/fa";
 import "./Dashboard.css";
 
@@ -156,6 +157,12 @@ export default function Dashboard() {
             <span>PERSONAL GROWTH</span>
             <FaChevronDown />
           </div>
+          <ul className="sidebar-menu">
+            <li onClick={() => navigate("/goals")}>
+              <FaTrophy />
+              <span>Goals</span>
+            </li>
+          </ul>
         </div>
 
         <div className="sidebar-section">
