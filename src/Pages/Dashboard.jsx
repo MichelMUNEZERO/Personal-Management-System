@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FaCalendar,
   FaEye,
@@ -15,10 +16,12 @@ import {
   FaUser,
   FaBars,
   FaTimes,
+  FaCog,
 } from "react-icons/fa";
 import "./Dashboard.css";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const [currentDate] = useState(new Date());
   const [pomodoroTime, setPomodoroTime] = useState({ minutes: 25, seconds: 0 });
   const [isTimerRunning, setIsTimerRunning] = useState(false);
@@ -156,6 +159,16 @@ export default function Dashboard() {
             <span>EXTRA</span>
             <FaChevronDown />
           </div>
+        </div>
+
+        <div className="sidebar-footer">
+          <button
+            className="settings-link"
+            onClick={() => navigate("/settings")}
+          >
+            <FaCog />
+            <span>Settings</span>
+          </button>
         </div>
       </aside>
 

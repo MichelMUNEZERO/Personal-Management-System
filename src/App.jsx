@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Dashboard from "./Pages/Dashboard";
+import Settings from "./Pages/Settings";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
 import Login from "./Auth/Login";
@@ -27,6 +28,7 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/settings" element={<Settings />} />
     </Routes>
   );
 }
