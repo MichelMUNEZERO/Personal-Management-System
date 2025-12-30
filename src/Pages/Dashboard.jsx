@@ -17,6 +17,7 @@ import {
   FaBars,
   FaTimes,
   FaCog,
+  FaTasks,
 } from "react-icons/fa";
 import "./Dashboard.css";
 
@@ -142,6 +143,12 @@ export default function Dashboard() {
             <span>PRODUCTIVITY</span>
             <FaChevronDown />
           </div>
+          <ul className="sidebar-menu">
+            <li onClick={() => navigate("/tasks")}>
+              <FaTasks />
+              <span>Task Manager</span>
+            </li>
+          </ul>
         </div>
 
         <div className="sidebar-section">

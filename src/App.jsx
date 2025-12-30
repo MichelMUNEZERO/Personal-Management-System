@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import Dashboard from "./Pages/Dashboard";
 import Settings from "./Pages/Settings";
 import Analytics from "./Pages/Analytics";
+import TaskManager from "./Pages/TaskManager";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
 import Login from "./Auth/Login";
@@ -31,6 +32,7 @@ export default function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/analytics" element={<Analytics />} />
+      <Route path="/tasks" element={<TaskManager />} />
     </Routes>
   );
 }
