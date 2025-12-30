@@ -9,6 +9,7 @@ import Analytics from "./Pages/Analytics";
 import TaskManager from "./Pages/TaskManager";
 import Goals from "./Pages/Goals";
 import Notes from "./Pages/Notes";
+import Habits from "./Pages/Habits";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
 import Login from "./Auth/Login";
@@ -37,6 +38,7 @@ export default function App() {
       <Route path="/tasks" element={<TaskManager />} />
       <Route path="/goals" element={<Goals />} />
       <Route path="/notes" element={<Notes />} />
+      <Route path="/habits" element={<Habits />} />
     </Routes>
   );
 }

@@ -20,6 +20,7 @@ import {
   FaTasks,
   FaTrophy,
   FaStickyNote,
+  FaFire,
 } from "react-icons/fa";
 import "./Dashboard.css";
 
@@ -162,6 +163,10 @@ export default function Dashboard() {
             <li onClick={() => navigate("/goals")}>
               <FaTrophy />
               <span>Goals</span>
+            </li>
+            <li onClick={() => navigate("/habits")}>
+              <FaFire />
+              <span>Habits Tracker</span>
             </li>
           </ul>
         </div>
