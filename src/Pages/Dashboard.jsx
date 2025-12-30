@@ -114,6 +114,10 @@ export default function Dashboard() {
               <FaCalendar />
               <span>Dashboard / My Day</span>
             </li>
+            <li onClick={() => navigate("/analytics")}>
+              <FaChartLine />
+              <span>Analytics & Reports</span>
+            </li>
             <li>
               <FaEye />
               <span>Daily View</span>
